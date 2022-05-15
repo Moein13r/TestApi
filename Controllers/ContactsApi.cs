@@ -37,6 +37,8 @@ namespace TestApi.Controllers
                 return BadRequest("An Error Occured Please Try Agian Or Call Supports Team!");
             }
         }
+        // GET api/<ContactsApi>/5
+        [HttpGet("[action]")]
         public ActionResult<Contact> GetAllContacts()
         {
             try

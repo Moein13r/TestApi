@@ -24,13 +24,30 @@ namespace TestApi.Controllers
         {
             try
             {
+                if (string.IsNullOrEmpty(name))
+                {
+                    return BadRequest("The Field Name Is Required!");    
+                }
                 var contacts = ContactdataAccess.GetContactsByName(name);
                 return Ok(contacts);
             }
             catch (Exception e)
             {
 
-                return BadRequest();
+                return BadRequest("An Error Occured Please Try Agian Or Call Supports Team!");
+            }
+        }
+        public ActionResult<Contact> GetAllContacts()
+        {
+            try
+            {
+                var contacts = ContactdataAccess.GetAllContacts();
+                return Ok(contacts);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest("An Error Occured Please Try Agian Or Call Supports Team!");
             }
         }
     }

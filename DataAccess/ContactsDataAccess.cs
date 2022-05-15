@@ -20,5 +20,10 @@ namespace TestApi.DataAccess
             var items = _dataResolver.GetFromCommand<Contact>("Select * from Contacts where Name Like '%" + @name + "%'",parameters);
             return items ?? new List<Contact>();
         }
+        public List<Contact> GetAllContacts()
+        {            
+            var items = _dataResolver.GetFromCommand<Contact>("Select * from Contacts");
+            return items ?? new List<Contact>();
+        }
     }
 }
